@@ -22,10 +22,23 @@ jobs:
       - run: |
           cd build/${{ matrix.browser }}
           zip -r ../tab-workspace-${{ matrix.browser }}.zip .
+      - name: Pack Chrome CRX
+        if: matrix.browser == 'chrome'
+        uses: cardinalby/webext-buildtools-chrome-crx-action@v2
+        with:
+          zipFilePath: build/tab-workspace-chrome.zip
+          crxPath: build/tab-workspace-chrome.crx
+          privateKey: ''
       - uses: actions/upload-artifact@v4
         with:
           name: tab-workspace-${{ matrix.browser }}
           path: build/tab-workspace-${{ matrix.browser }}.zip
+      - name: Upload Chrome CRX
+        if: matrix.browser == 'chrome'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tab-workspace-chrome-crx
+          path: build/tab-workspace-chrome.crx
 
   release:
     name: Create Release

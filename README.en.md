@@ -20,13 +20,23 @@
 
 ## Installation
 
-1. Run `pnpm build:chrome` (or `pnpm build:edge` / `pnpm build:safari`)
+### Option 1: Developer Mode Load (Recommended)
+
+1. Download and extract the ZIP file for your browser
 2. Open your browser's extension management page
    - Chrome: `chrome://extensions/`
    - Edge: `edge://extensions/`
-   - Safari: Convert via `xcrun safari-web-extension-converter`
 3. Enable **Developer mode**
-4. Click **Load unpacked** and select the `build/chrome` (or corresponding) directory
+4. Click **Load unpacked** and select the extracted directory
+
+### Option 2: CRX File Install (Chrome)
+
+1. Download the `tab-workspace-chrome.crx` file
+2. Open `chrome://extensions/` and enable **Developer mode**
+3. Drag the `.crx` file onto the extensions page
+4. Confirm installation
+
+> **Note**: Newer Chrome versions may block installation of extensions not listed on the Chrome Web Store. If blocked, use Option 1.
 
 ## Development
 

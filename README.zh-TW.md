@@ -20,13 +20,23 @@
 
 ## 安裝
 
-1. 執行 `pnpm build:chrome`（或 `pnpm build:edge` / `pnpm build:safari`）
+### 方式一：開發人員模式載入（推薦）
+
+1. 下載對應瀏覽器的 ZIP 包並解壓縮
 2. 開啟瀏覽器的擴充功能管理頁面
    - Chrome: `chrome://extensions/`
    - Edge: `edge://extensions/`
-   - Safari: 使用 `xcrun safari-web-extension-converter` 轉換
 3. 啟用 **開發人員模式**
-4. 點擊 **載入未封裝的擴充功能**，選擇 `build/chrome`（或對應）目錄
+4. 點擊 **載入未封裝的擴充功能**，選擇解壓縮後的目錄
+
+### 方式二：CRX 檔案安裝（Chrome）
+
+1. 下載 `tab-workspace-chrome.crx` 檔案
+2. 開啟 `chrome://extensions/`，啟用 **開發人員模式**
+3. 將 `.crx` 檔案拖曳到擴充功能管理頁面
+4. 確認安裝
+
+> **注意**：新版 Chrome 可能阻止安裝未上架的 CRX 檔案。如遇阻止提示，請使用方式一。
 
 ## 開發
 
